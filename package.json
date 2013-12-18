@@ -1,0 +1,11 @@
+{
+	"name": "picknplay-remote-mouse",
+	"description": "Pick&Play remote mouse",
+	"author": "Piotr Pelczar <me@athlan.pl>",
+	"dependencies": {
+		"socket.io": "*",
+		"express": "*"
+	},
+	"devDependencies": {
+	}
+}
