@@ -3,6 +3,8 @@ var App = function() {
 	this.minDelta = 0.05
 	this.x = null
 	this.y = null
+	this.windowX = 0
+	this.windowY = 0
 	this.serverAddress = null
 	this.serverRemoteHost = null
 	this.serverRemotePort = null
@@ -18,7 +20,7 @@ var App = function() {
 		})
 		
 		// register listeners
-		$(window).on('resize', function() {
+		$(window).on('resize orientationchange', function() {
 			indicateWindowSize()
 		})
 		indicateWindowSize()
@@ -39,7 +41,8 @@ var App = function() {
 				}
 				
 				that.socket.emit('mouseMoveToPercent', data)
-				console.log(data)
+				//console.log(data)
+				//$('body').text('w:' + that.windowX + ', h: ' + that.windowY + '; x: ' + x + ', y: ' + y).html()
 			}
 		})
 	}
