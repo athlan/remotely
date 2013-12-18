@@ -14,11 +14,14 @@
 			var instance = new App()
 			
 			instance.serverAddress = $('body').data('server')
+			instance.serverRemoteHost = $('body').data('server-remote-host')
+			instance.serverRemotePort = $('body').data('server-remote-port')
+			
 			instance.run()
 		})
 	</script>
 </head>
 
-<body data-server="192.168.1.127:8080">
+<body data-server="192.168.1.127:8080" data-server-remote-host="192.168.1.127" data-server-remote-port="8081">
 </body>
 </html>

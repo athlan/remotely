@@ -4,11 +4,18 @@ var App = function() {
 	this.x = null
 	this.y = null
 	this.serverAddress = null
+	this.serverRemoteHost = null
+	this.serverRemotePort = null
 	this.socket = null
 	
 	this.run = function() {
 		// init socket connection
 		that.socket = socketConnect(that.socket, that.serverAddress);
+		
+		that.socket.emit('connectToRemote', {
+			host: that.serverRemoteHost,
+			port: that.serverRemotePort
+		})
 		
 		// register listeners
 		$(window).on('resize', function() {
