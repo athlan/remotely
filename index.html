@@ -1,24 +1,33 @@
 <html>
 
 <head>
-	<meta name="viewport" content="width = 300; user-scalable=false;">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	
-	<script src="assets/js/jquery-1.10.2.min.js"></script>
-	<script src="assets/js/jquery.mobile-1.3.2.min.js"></script>
-	<script src="assets/js/socket.io.js"></script>
-	
-	<script src="app.js"></script>
+	<script src="assets/js/basket.full.min.js"></script>
 	<script>
-		$(function() {
-			var instance = new App()
-			
-			instance.serverAddress = $('body').data('server')
-			instance.serverRemoteHost = $('body').data('server-remote-host')
-			instance.serverRemotePort = $('body').data('server-remote-port')
-			
-			instance.run()
-		})
+		basket
+		    .require(
+				{ url: 'assets/js/jquery-1.10.2.min.js' },
+				{ url: 'assets/js/socket.io.js' }
+			)
+		    .then(function() {
+		        basket.require({ url: 'assets/js/jquery.mobile-1.3.2.min.js' });
+		    })
+			.then(function() {
+		        basket.require({ url: 'app.js' });
+		    })
+			.then(function() {
+				$(function() {
+					var instance = new App()
+
+					instance.serverAddress = $('body').data('server')
+					instance.serverRemoteHost = $('body').data('server-remote-host')
+					instance.serverRemotePort = $('body').data('server-remote-port')
+
+					instance.run()
+				})
+			});
 	</script>
 </head>
 
